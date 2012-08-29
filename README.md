@@ -6,7 +6,7 @@ This gem provides an unofficial API for browsing buckets on Dribbble and their c
 
 Add this line to your application's Gemfile:
 
-    gem 'dribbble_bucket_api'
+    gem 'dribbble-bucket-api'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install dribbble_bucket_api
+    $ gem install dribbble-bucket-api
 
 ## Usage
 
