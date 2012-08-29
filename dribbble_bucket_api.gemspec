@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.email         = ["ryan@ryantownsend.co.uk"]
   s.description   = %q{Unofficial API for browsing Dribbble buckets and their contents}
   s.summary       = s.description
-  s.homepage      = ""
+  s.homepage      = "https://github.com/ryantownsend/dribbble-bucket-api"
 
   s.files         = `git ls-files`.split($\)
   s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
