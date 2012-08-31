@@ -27,7 +27,7 @@ Or install it yourself as:
     buckets.total_entries # => 7
     buckets.current_page # => 1
     buckets.next_page # => 2
-    buckets.previous_page # => nil
+    buckets.previous_page # => 1
     
     buckets.each do |bucket| # => DribbbleBucketApi::Bucket
       puts bucket.name
@@ -35,6 +35,7 @@ Or install it yourself as:
       
       # loading shots
       shots = bucket.shots(page: 1) # => DribbbleBucketApi::ShotCollection
+      shots.total_entries # => 14
       shots.each do |shot| # => DribbbleBucketApi::Shot
         puts shot.title
         puts shot.image_url

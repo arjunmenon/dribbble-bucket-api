@@ -11,14 +11,12 @@ module DribbbleBucketApi
 		end
 		
 		def buckets
-			@buckets = document.css(".bucket-list > li").map do |bucket|
+			@buckets ||= document.css(".bucket-list > li").map do |bucket|
 				# parse bucket data from HTML
 				id = bucket["class"].gsub(/^bucket\-(\d+)$/, "\1").to_i
-				link = bucket.css(".bucket-title a").first
-				name = link.text
-				url = link["href"]
+				name = bucket.css(".bucket-title a").first.text
 				# pass data into bucket object
-				Bucket.new(id: id, name: name, url: url)
+				Bucket.new(id: id, name: name, username: username)
 			end
 		end
 		
@@ -35,6 +33,10 @@ module DribbbleBucketApi
 		end
 		
 		private
+		def username
+			@options[:username]
+		end
+		
 		def document
 			@document ||= Nokogiri::HTML(@body)
 		end

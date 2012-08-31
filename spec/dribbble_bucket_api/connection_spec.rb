@@ -1,3 +1,4 @@
+require "spec_helper"
 require_relative "../../lib/dribbble_bucket_api/connection"
 
 describe DribbbleBucketApi::Connection do

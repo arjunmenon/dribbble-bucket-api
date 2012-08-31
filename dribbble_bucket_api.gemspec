@@ -17,5 +17,7 @@ Gem::Specification.new do |s|
   
   s.add_dependency "nokogiri"
   s.add_dependency "httparty"
+  s.add_dependency "multi_json"
   s.add_development_dependency "rspec"
+  s.add_development_dependency "simplecov"
 end
