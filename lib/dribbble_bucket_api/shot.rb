@@ -6,7 +6,7 @@ module DribbbleBucketApi
 		def initialize(attrs = {})
 			@attrs = attrs
 			# ensure we have an id
-			unless @attrs.has_key?(:id)
+			unless @attrs.has_key?(:id) && @attrs[:id]
 				raise ArgumentError, "Shot must be initialized with an id"
 			end
 		end

@@ -7,6 +7,16 @@ describe DribbbleBucketApi::Shot do
 	subject do
 		DribbbleBucketApi::Shot.new({ id: id })
 	end
+	
+	describe "::new" do
+		context "without an id" do
+			let(:id) { nil }
+			
+			it "should raise an exception" do
+				expect { subject }.to raise_error(ArgumentError)
+			end
+		end
+	end
 
 	describe "#image_url" do
 		context "when the image_url has not yet been loaded" do

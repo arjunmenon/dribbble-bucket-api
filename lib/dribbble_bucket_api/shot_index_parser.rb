@@ -34,10 +34,6 @@ module DribbbleBucketApi
 		end
 
 		private
-		def username
-			@options[:username]
-		end
-
 		def document
 			@document ||= Nokogiri::HTML(@body)
 		end
