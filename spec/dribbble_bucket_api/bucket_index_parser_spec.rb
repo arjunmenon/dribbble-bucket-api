@@ -88,4 +88,50 @@ describe DribbbleBucketApi::BucketIndexParser do
 			expect(subject.total_pages).to eq 6
 		end
 	end
+	
+	describe "#next_page" do
+		context "when total_pages > current_page" do
+			before do
+				subject.stub(:current_page).and_return(2)
+				subject.stub(:total_pages).and_return(3)
+			end
+	
+			it "should return current_page + 1" do
+				expect(subject.next_page).to eq 3
+			end
+		end
+		
+		context "when total_pages <= current_page" do
+			before do
+				subject.stub(:current_page).and_return(3)
+				subject.stub(:total_pages).and_return(3)
+			end
+		
+			it "should return nil" do
+				expect(subject.next_page).to be_nil
+			end
+		end
+	end
+	
+	describe "#previous_page" do
+		context "when current_page > 1" do
+			before do
+				subject.stub(:current_page).and_return(3)
+			end
+	
+			it "should return current_page - 1" do
+				expect(subject.previous_page).to eq 2
+			end
+		end
+		
+		context "when current_page <= 1" do
+			before do
+				subject.stub(:current_page).and_return(1)
+			end
+		
+			it "should return nil" do
+				expect(subject.previous_page).to be_nil
+			end
+		end
+	end
 end

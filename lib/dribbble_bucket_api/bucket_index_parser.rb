@@ -24,6 +24,14 @@ module DribbbleBucketApi
 			@options[:page] || 1
 		end
 		
+		def next_page
+			current_page + 1 if current_page < total_pages
+		end
+		
+		def previous_page
+			current_page - 1 if current_page > 1
+		end
+		
 		def total_entries
 			@total_entries ||= document.css(".buckets .count").text.to_i
 		end

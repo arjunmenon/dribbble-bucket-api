@@ -27,7 +27,7 @@ Or install it yourself as:
     buckets.total_entries # => 7
     buckets.current_page # => 1
     buckets.next_page # => 2
-    buckets.previous_page # => 1
+    buckets.previous_page # => nil
     
     buckets.each do |bucket| # => DribbbleBucketApi::Bucket
       puts bucket.name
