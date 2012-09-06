@@ -64,6 +64,11 @@ describe DribbbleBucketApi::BucketIndexParser do
 				expect(bucket).to be_kind_of DribbbleBucketApi::Bucket
 			end
 		end
+		
+		it "should parse the ids correctly" do
+			ids = subject.buckets.map(&:id)
+			expect(ids).to eq [12345, 67890, 98760, 54321, 12093]
+		end
 	end
 	
 	describe "#current_page" do

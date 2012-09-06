@@ -13,7 +13,7 @@ module DribbbleBucketApi
 		def buckets
 			@buckets ||= document.css(".bucket-list > li").map do |bucket|
 				# parse bucket data from HTML
-				id = bucket["class"].gsub(/^bucket\-(\d+)$/, "\1").to_i
+				id = bucket["class"] =~ /^bucket\-(\d+)$/ && $1.to_i
 				name = bucket.css(".bucket-title a").first.text
 				# pass data into bucket object
 				Bucket.new(id: id, name: name, username: username)
