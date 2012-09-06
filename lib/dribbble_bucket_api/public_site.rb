@@ -13,8 +13,7 @@ module DribbbleBucketApi
 			unless response.code == 200
 				raise StandardError, %Q(
 					Response returned #{response.code}
-					Body:
-					#{response.body}
+					URI: #{response.request.path}
 				)
 			end
 			# return the object
@@ -27,8 +26,7 @@ module DribbbleBucketApi
 			unless response.code == 200
 				raise StandardError, %Q(
 					Response returned #{response.code}
-					Body:
-					#{response.body}
+					URI: #{response.request.path}
 				)
 			end
 			# return the object
