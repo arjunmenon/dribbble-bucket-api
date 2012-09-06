@@ -14,11 +14,12 @@ module DribbbleBucketApi
 			@shots ||= document.css(".dribbbles > li").map do |shot|
 				# parse shot data from HTML
 				id = shot["id"] =~ /^screenshot\-(\d+)$/ && $1.to_i
-				img_src = shot.css(".dribbble-img img").first["src"]
-				ext = img_src =~ /\.(jpe?g|png|gif)$/ && $1
+				image_teaser_url = shot.css(".dribbble-img img").first["src"]
+				image_url = image_teaser_url.gsub(/\_teaser\.(jpe?g|png|gif)$/, '.\1')
+				ext = image_teaser_url =~ /\.(jpe?g|png|gif)$/ && $1
 				url = "http://dribbble.com" + shot.css("a.dribbble-link").first["href"]
 				# pass data into shot object
-				Shot.new(id: id, image_teaser_url: img_src, ext: ext, url: url)
+				Shot.new(id: id, image_teaser_url: image_teaser_url, image_url: image_url, ext: ext, url: url)
 			end
 		end
 

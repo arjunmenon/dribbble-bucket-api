@@ -26,7 +26,7 @@ describe DribbbleBucketApi::ShotIndexParser do
 							<div class="dribbble">
 								<div class="dribbble-shot">
 									<div class="dribbble-img">
-										<a href="/shots/693929-Alternate-Timeline" class="dribbble-link"><img alt="teaser" src="http://dribbble.s3.amazonaws.com/users/2935/screenshots/693929/teaser.jpg"></a>
+										<a href="/shots/693929-Alternate-Timeline" class="dribbble-link"><img alt="teaser" src="http://dribbble.s3.amazonaws.com/users/2935/screenshots/693929/something_teaser.jpg"></a>
 										<a href="/shots/693929-Alternate-Timeline" class="dribbble-over">
 											<strong>Alternate Timeline</strong>
 											<em>August 19, 2012</em>
@@ -75,6 +75,11 @@ describe DribbbleBucketApi::ShotIndexParser do
 		it "should parse the extensions correctly" do
 			ids = subject.shots.map(&:ext)
 			expect(ids).to eq ["png", "jpg"]
+		end
+		
+		it "should parse the image urls correctly" do
+			ids = subject.shots.map(&:image_url)
+			expect(ids).to eq ["http://dribbble.s3.amazonaws.com/users/2935/screenshots/693587/screen_shot_2012-08-18_at_6.41.47_pm.png", "http://dribbble.s3.amazonaws.com/users/2935/screenshots/693929/something.jpg"]
 		end
 	end
 
