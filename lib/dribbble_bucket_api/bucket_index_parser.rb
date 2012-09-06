@@ -29,7 +29,7 @@ module DribbbleBucketApi
 		end
 		
 		def total_pages
-			(total_entries.to_f / 5).ceil
+			total_entries > 0 ? (total_entries.to_f / 5).ceil : 0
 		end
 		
 		private
